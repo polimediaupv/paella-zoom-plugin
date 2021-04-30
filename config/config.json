@@ -49,8 +49,8 @@
             "order": 1
         },
 
-        "es.upv.paella.testVideoCanvas": {
-            "enabled": false,
+        "es.upv.paella.zoomPlugin": {
+            "enabled": true,
             "order": 0
         }
     }

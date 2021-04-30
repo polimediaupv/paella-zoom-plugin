@@ -3,7 +3,7 @@ import getZoomPluginContext from './index';
 
 const initParams = {
     customPluginContext: [
-        //getZoomPluginContext()
+        getZoomPluginContext()
     ]
 };
 
