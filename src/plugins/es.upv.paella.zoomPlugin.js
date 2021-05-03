@@ -40,20 +40,20 @@ function movePlayer(player, currentPosition, offset) {
         top: currentPosition.top + offset.top
     }
     const parent = player.parentElement;
-    // TODO: Check height bounds
-    if (true) {
-        player.style.top = `-${newPosition.top}px`;
-    }
-    else {
+    
+    player.style.top = `-${newPosition.top}px`;
+
+    const top = (player.offsetHeight + player.offsetTop) - parent.offsetHeight;
+    if (top<0) {
         newPosition.top = currentPosition.top;
     }
-    // TODO: Check width bounds
-    if (true) {
-        player.style.left = `-${newPosition.left}px`;
-    }
-    else {
+
+    player.style.left = `-${newPosition.left}px`;
+    const left = (player.offsetWidth + player.offsetLeft) - parent.offsetWidth;
+    if (left<0) {
         newPosition.left = currentPosition.left;
     }
+    
     return newPosition;
 }
 
