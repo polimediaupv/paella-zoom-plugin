@@ -1,4 +1,6 @@
-import { CanvasPlugin, Canvas } from 'paella-core';
+import { CanvasPlugin, Canvas, createElementWithHtmlText } from 'paella-core';
+
+import "../styles/zoom.css";
 
 function setZoom(container, playerElement, newZoom) {
     const containerSize = {
@@ -53,7 +55,7 @@ function movePlayer(player, currentPosition, offset) {
     if (left<0) {
         newPosition.left = currentPosition.left;
     }
-    
+
     return newPosition;
 }
 
@@ -82,7 +84,7 @@ export class ZoomCanvas extends Canvas {
                 this.showAltKeyMessage();
                 return;
             }
-
+            this.hideAltKeyMessage();
             const newZoom = this.currentZoom + evt.deltaY * 0.01;
             if (newZoom>1 && newZoom<=this._maxZoom) {
                 this.currentZoom = newZoom;
@@ -127,10 +129,30 @@ export class ZoomCanvas extends Canvas {
             }
         });
 
+        // "press alt" message
+        const message = {
+            es: "Manten pulsado ALT para hacer zoom"
+        }[navigator.language] || "Preset ALT to zoom";
+
+        this._zoomMessage = createElementWithHtmlText(`
+            <div class="zoom-message">${message}</div>
+        `, this.element);
+        this._zoomMessage.style.display = "none";
     }
 
     showAltKeyMessage() {
-        console.log("Press alt to zoom");
+        if (this._hideTimeout) {
+            clearTimeout(this._hideTimeout);
+        }
+        this._zoomMessage.style.display = "";
+        this._hideTimeout = setTimeout(() => {
+            this.hideAltKeyMessage();
+        }, 2000);
+    }
+
+    hideAltKeyMessage() {
+        this._zoomMessage.style.display = "none";
+        this._hideTimeout = null;
     }
 }
 
