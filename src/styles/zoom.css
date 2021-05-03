@@ -11,3 +11,22 @@
     align-items: center;
     color: white;
 }
+
+.zoom-buttons {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zoom-buttons button {
+    margin: 2px;
+    opacity: 0.4;
+}
+
+.zoom-buttons button:hover {
+    opacity: 1;
+}

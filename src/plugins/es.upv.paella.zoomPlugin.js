@@ -64,6 +64,7 @@ export class ZoomCanvas extends Canvas {
         super('div', player, videoContainer);
         this.config = config;
         this._maxZoom = this.config.maxZoom || 4;
+        this._showButtons = this.config.showButtons!==undefined ? this.config.showButtons : true;
     }
 
     async loadCanvas(player) {
@@ -138,6 +139,23 @@ export class ZoomCanvas extends Canvas {
             <div class="zoom-message">${message}</div>
         `, this.element);
         this._zoomMessage.style.display = "none";
+
+        // Zoom buttons
+        if (this._showButtons) {
+            const zoomButtonsContainer = createElementWithHtmlText(`
+                <div class="zoom-buttons"></div>
+            `, this.element);
+            const zoomOutBtn = createElementWithHtmlText(`<button>-</button>`, zoomButtonsContainer);
+            const zoomInBtn = createElementWithHtmlText(`<button>+</button>`, zoomButtonsContainer);
+            zoomOutBtn.addEventListener("click", evt => {
+                evt.stopPropagation();
+                this.zoomOut();
+            });
+            zoomInBtn.addEventListener("click", evt => {
+                evt.stopPropagation();
+                this.zoomIn();
+            });
+        }
     }
 
     showAltKeyMessage() {
@@ -153,6 +171,22 @@ export class ZoomCanvas extends Canvas {
     hideAltKeyMessage() {
         this._zoomMessage.style.display = "none";
         this._hideTimeout = null;
+    }
+
+    zoomIn() {
+        const zoom = this.currentZoom * 1.1;
+        if (zoom<this._maxZoom) {
+            this.currentZoom = zoom;
+            this._playerCenter = setZoom(this.element, this._videoPlayer.element, this.currentZoom);
+        }
+    }
+
+    zoomOut() {
+        const zoom = this.currentZoom * 0.9;
+        if (zoom>=1) {
+            this.currentZoom = zoom;
+            this._playerCenter = setZoom(this.element, this._videoPlayer.element, this.currentZoom);
+        }
     }
 }
 
