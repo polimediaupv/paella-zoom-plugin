@@ -61,6 +61,22 @@
             "parentContainer": "playbackBar",
             "side": "right",
             "target": "presenter"
+        },
+
+        "es.upv.paella.zoomInButtonPlugin": {
+            "enabled": true,
+            "parentContainer": "videoContainer",
+            "side": "left",
+            "target": "presenter",
+            "order": 0
+        },
+
+        "es.upv.paella.zoomOutButtonPlugin": {
+            "enabled": true,
+            "parentContainer": "videoContainer",
+            "side": "left",
+            "target": "presenter",
+            "order": 1
         }
     }
 }

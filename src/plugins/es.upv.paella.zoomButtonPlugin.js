@@ -1,17 +1,20 @@
 import { MenuButtonPlugin } from 'paella-core';
 
+import { ZoomCanvas } from './es.upv.paella.zoomPlugin';
+
 import zoomInButton from '../icons/mini-zoom-in.svg';
 import zoomOutButton from '../icons/mini-zoom-out.svg';
 
 export default class ZoomButtonPlugin extends MenuButtonPlugin {
 
-    async load() {
-        this.icon = zoomInButton;
-        this.target = this.config.target || "presenter";
+    async isEnabled() {
+        this._target = this.config.target || "presenter";
+        this._canvas = this.player.videoContainer.streamProvider.streams[this._target].canvas;
+        return this._canvas instanceof ZoomCanvas;
     }
 
-    get canvas() {
-        return this.player.videoContainer.streamProvider.streams[this.target].canvas;
+    async load() {
+        this.icon = zoomInButton;
     }
 
     async getMenu() {
@@ -40,10 +43,10 @@ export default class ZoomButtonPlugin extends MenuButtonPlugin {
     itemSelected(itemData) {
         switch (itemData.id) {
         case "in":
-            this.canvas.zoomIn();
+            this._canvas.zoomIn();
             break;
         case "out":
-            this.canvas.zoomOut();
+            this._canvas.zoomOut();
             break;
         }
     }
