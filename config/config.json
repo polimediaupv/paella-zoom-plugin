@@ -54,6 +54,13 @@
             "order": 0,
             "maxZoom": 800,
             "showButtons": true
+        },
+
+        "es.upv.paella.zoomButtonPlugin": {
+            "enabled": true,
+            "parentContainer": "playbackBar",
+            "side": "right",
+            "target": "presenter"
         }
     }
 }
