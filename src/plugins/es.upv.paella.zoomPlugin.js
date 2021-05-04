@@ -2,6 +2,9 @@ import { CanvasPlugin, Canvas, createElementWithHtmlText } from 'paella-core';
 
 import "../styles/zoom.css";
 
+import zoomInIcon from '../icons/mini-zoom-in.svg';
+import zoomOutIcon from '../icons/mini-zoom-out.svg';
+
 function setZoom(container, playerElement, newZoom) {
     const containerSize = {
         w: container.offsetWidth,
@@ -145,8 +148,8 @@ export class ZoomCanvas extends Canvas {
             const zoomButtonsContainer = createElementWithHtmlText(`
                 <div class="zoom-buttons"></div>
             `, this.element);
-            const zoomOutBtn = createElementWithHtmlText(`<button>-</button>`, zoomButtonsContainer);
-            const zoomInBtn = createElementWithHtmlText(`<button>+</button>`, zoomButtonsContainer);
+            const zoomOutBtn = createElementWithHtmlText(`<button>${ zoomOutIcon }</button>`, zoomButtonsContainer);
+            const zoomInBtn = createElementWithHtmlText(`<button>${ zoomInIcon }</button>`, zoomButtonsContainer);
             zoomOutBtn.addEventListener("click", evt => {
                 evt.stopPropagation();
                 this.zoomOut();

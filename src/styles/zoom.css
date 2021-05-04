@@ -25,6 +25,10 @@
 .zoom-buttons button {
     margin: 2px;
     opacity: 0.4;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: block;
 }
 
 .zoom-buttons button:hover {
