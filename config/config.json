@@ -56,7 +56,7 @@
             "showButtons": true
         },
 
-        "es.upv.paella.zoomButtonPlugin": {
+        "es.upv.paella.zoomMenuButtonPlugin": {
             "enabled": true,
             "parentContainer": "playbackBar",
             "side": "right",

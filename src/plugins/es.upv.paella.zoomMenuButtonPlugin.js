@@ -5,7 +5,7 @@ import { ZoomCanvas } from './es.upv.paella.zoomPlugin';
 import zoomInButton from '../icons/mini-zoom-in.svg';
 import zoomOutButton from '../icons/mini-zoom-out.svg';
 
-export default class ZoomButtonPlugin extends MenuButtonPlugin {
+export default class ZoomMenuButtonPlugin extends MenuButtonPlugin {
 
     async isEnabled() {
         this._target = this.config.target || "presenter";
