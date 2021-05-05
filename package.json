@@ -1,6 +1,6 @@
 {
   "name": "paella-zoom-plugin",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "A plugin to zoom videos for Paella Player",
   "main": "src/index.js",
   "module": "dist/paella-zoom-plugin.js",
@@ -42,6 +42,6 @@
     "svg-inline-loader": "^0.8.2"
   },
   "dependencies": {
-    "paella-core": "^1.0.0-alpha.15"
+    "paella-core": "^1.0.0-alpha.17"
   }
 }

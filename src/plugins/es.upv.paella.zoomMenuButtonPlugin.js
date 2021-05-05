@@ -8,6 +8,10 @@ import zoomOutButton from '../icons/mini-zoom-out.svg';
 export default class ZoomMenuButtonPlugin extends MenuButtonPlugin {
 
     async isEnabled() {
+        if (!super.isEnabled()) {
+            return false;
+        }
+        
         this._target = this.config.target || "presenter";
         this._canvas = this.player.videoContainer.streamProvider.streams[this._target].canvas;
         return this._canvas instanceof ZoomCanvas;
