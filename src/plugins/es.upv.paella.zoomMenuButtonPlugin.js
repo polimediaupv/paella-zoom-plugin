@@ -8,7 +8,7 @@ import zoomOutButton from '../icons/mini-zoom-out.svg';
 export default class ZoomMenuButtonPlugin extends MenuButtonPlugin {
 
     async isEnabled() {
-        if (!super.isEnabled()) {
+        if (!(await super.isEnabled())) {
             return false;
         }
         

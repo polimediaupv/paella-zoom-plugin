@@ -7,7 +7,7 @@ import zoomInButton from '../icons/mini-zoom-in.svg';
 export default class ZoomInButtonPlugin extends ButtonPlugin {
 
     async isEnabled() {
-        if (!super.isEnabled()) {
+        if (!(await super.isEnabled())) {
             return false;
         }
         
