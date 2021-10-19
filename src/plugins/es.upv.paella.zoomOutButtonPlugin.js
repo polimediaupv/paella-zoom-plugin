@@ -5,6 +5,21 @@ import { ZoomCanvas } from './es.upv.paella.zoomPlugin';
 import zoomOutButton from '../icons/mini-zoom-out.svg';
 
 export default class ZoomOutButtonPlugin extends ButtonPlugin {
+    getAriaLabel() {
+        return "Zoom out";
+    }
+
+    getDescription() {
+        return this.getAriaLabel();
+    }
+
+	async getDictionaries() {
+		return {
+			es: {
+				"Zoom out": "Reducir zoom de vídeo"
+			}
+		}
+	}
 
     async isEnabled() {
         if (!(await super.isEnabled())) {

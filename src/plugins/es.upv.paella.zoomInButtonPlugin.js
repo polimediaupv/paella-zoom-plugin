@@ -5,6 +5,21 @@ import { ZoomCanvas } from './es.upv.paella.zoomPlugin';
 import zoomInButton from '../icons/mini-zoom-in.svg';
 
 export default class ZoomInButtonPlugin extends ButtonPlugin {
+    getAriaLabel() {
+        return "Zoom in";
+    }
+
+    getDescription() {
+        return this.getAriaLabel();
+    }
+
+	async getDictionaries() {
+		return {
+			es: {
+				"Zoom in": "Ampliar zoom del vídeo"
+			}
+		}
+	}
 
     async isEnabled() {
         if (!(await super.isEnabled())) {

@@ -6,6 +6,21 @@ import zoomInButton from '../icons/mini-zoom-in.svg';
 import zoomOutButton from '../icons/mini-zoom-out.svg';
 
 export default class ZoomMenuButtonPlugin extends MenuButtonPlugin {
+    getAriaLabel() {
+        return "Show video zoom options";
+    }
+
+    getDescription() {
+        return this.getAriaLabel();
+    }
+
+	async getDictionaries() {
+		return {
+			es: {
+				"Show video zoom options": "Mostrar opciones de zoom de vídeo"
+			}
+		}
+	}
 
     async isEnabled() {
         if (!(await super.isEnabled())) {
