@@ -25,7 +25,7 @@ config.plugins.push(new CopyWebpackPlugin({
 
 config.devServer = {
 	port: 8090,
-	disableHostCheck: true,
+	allowedHosts: 'all',
 	headers: {
 		"Access-Control-Allow-Origin": "*",
 		"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
