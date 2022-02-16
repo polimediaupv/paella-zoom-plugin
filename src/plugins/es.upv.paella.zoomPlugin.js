@@ -144,6 +144,7 @@ export class ZoomCanvas extends Canvas {
         this._zoomMessage.style.display = "none";
 
         // Zoom buttons
+        /*
         if (this._showButtons) {
             const zoomButtonsContainer = createElementWithHtmlText(`
                 <div class="zoom-buttons"></div>
@@ -159,6 +160,7 @@ export class ZoomCanvas extends Canvas {
                 this.zoomIn();
             });
         }
+        */
     }
 
     showAltKeyMessage() {
