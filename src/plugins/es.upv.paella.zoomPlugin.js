@@ -33,8 +33,16 @@ function setZoom(container, playerElement, newZoom) {
         top: playerCenter.top - containerCenter.top
     };
     
-    playerElement.style.left = `-${offset.left}px`;
-    playerElement.style.top = `-${offset.top}px`;
+    if (newZoom == 1) {
+        playerElement.style.left = `0px`;
+        playerElement.style.top = `0px`;
+        offset.left = containerCenter.left;
+        offset.top = containerCenter.top;
+    }
+    else {
+        playerElement.style.left = `-${offset.left}px`;
+        playerElement.style.top = `-${offset.top}px`;
+    }
 
     return offset;
 }
@@ -83,19 +91,28 @@ export class ZoomCanvas extends Canvas {
         this.element.style.overflow = "hidden";
         this.element.style.position = "relative";
 
-        this.element.addEventListener("mousewheel", evt => {
+        const zoomHandle = evt => {
+            evt.stopPropagation();
             if (!evt.altKey) {
                 this.showAltKeyMessage();
                 return;
             }
             this.hideAltKeyMessage();
-            const newZoom = this.currentZoom + evt.deltaY * 0.01;
+            const delta = evt.deltaY !== undefined ? evt.deltaY * 0.1 : evt.detail * 4;
+            const newZoom = this.currentZoom + delta * -0.01;
             if (newZoom>1 && newZoom<=this._maxZoom) {
                 this.currentZoom = newZoom;
                 this._playerCenter = setZoom(this.element, this._videoPlayer.element, this.currentZoom);
             }
+            else if (newZoom <= 1) {
+                this.currentZoom = 1;
+                this._playerCenter = setZoom(this.element, this._videoPlayer.element, this.currentZoom);
+            }
             evt.preventDefault();
-        });
+        };
+        
+        this.element.addEventListener("DOMMouseScroll", zoomHandle);
+        this.element.addEventListener("mousewheel", zoomHandle);
 
         let drag = false;
         let preventClick = false;
@@ -134,33 +151,11 @@ export class ZoomCanvas extends Canvas {
         });
 
         // "press alt" message
-        const message = {
-            es: "Manten pulsado ALT para hacer zoom"
-        }[navigator.language] || "Preset ALT to zoom";
-
+        const message = this.player.translate("Press ALT to zoom");
         this._zoomMessage = createElementWithHtmlText(`
             <div class="zoom-message">${message}</div>
         `, this.element);
         this._zoomMessage.style.display = "none";
-
-        // Zoom buttons
-        /*
-        if (this._showButtons) {
-            const zoomButtonsContainer = createElementWithHtmlText(`
-                <div class="zoom-buttons"></div>
-            `, this.element);
-            const zoomOutBtn = createElementWithHtmlText(`<button>${ zoomOutIcon }</button>`, zoomButtonsContainer);
-            const zoomInBtn = createElementWithHtmlText(`<button>${ zoomInIcon }</button>`, zoomButtonsContainer);
-            zoomOutBtn.addEventListener("click", evt => {
-                evt.stopPropagation();
-                this.zoomOut();
-            });
-            zoomInBtn.addEventListener("click", evt => {
-                evt.stopPropagation();
-                this.zoomIn();
-            });
-        }
-        */
     }
 
     showAltKeyMessage() {
