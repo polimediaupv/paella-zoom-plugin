@@ -59,7 +59,7 @@ Zooming works with the mouse scroll wheel by holding down the `alt` key. It is a
 
 ![zoom_buttons.jpg](zoom_buttons.jpg)
 
-
+**Exported as** `ZoomCanvasPlugin`.
 
 ##  Zoom menu plugin
 
@@ -83,14 +83,13 @@ Displays the options to zoom in or zoom out the video using a drop-down menu. Th
 ```
 
 
-
 **config.json:**
 
 ```json
 {
   "plugins": {
-      "es.upv.paella.zoomMenuButtonPlugin": {
-    		"enabled": true,
+    "es.upv.paella.zoomMenuButtonPlugin": {
+      "enabled": true,
         "parentContainer": "playbackBar",
         "side": right,
         "target": "presenter"		<< content target to zoom
@@ -99,7 +98,7 @@ Displays the options to zoom in or zoom out the video using a drop-down menu. Th
 }
 ```
 
-
+**Exported as** `ZoomMenuButtonPlugin`.
 
 ## Zoom in and zoom out buttons
 
@@ -126,3 +125,4 @@ These are two button plugins that allow you to zoom in and zoom out the video in
 }
 ```
 
+**Exported as** `ZoomInButtonPlugin` and `ZoomOutButtonPlugin`.
