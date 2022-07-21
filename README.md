@@ -1,4 +1,5 @@
 # paella-zoom-plugin
+
 A plugin to zoom videos for Paella Player.
 
 This set of plugins consists of four different plugins:
@@ -100,6 +101,14 @@ Displays the options to zoom in or zoom out the video using a drop-down menu. Th
 
 **Exported as** `ZoomMenuButtonPlugin`.
 
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.zoomMenuButtonPlugin`
+- Icon names:
+    * `zoomInIcon`
+    * `zoomOutIcon`
+
+
 ## Zoom in and zoom out buttons
 
 These are two button plugins that allow you to zoom in and zoom out the video independently, instead of being grouped in a menu as with the `zoomMenuPlugin` plugin.
@@ -126,3 +135,13 @@ These are two button plugins that allow you to zoom in and zoom out the video in
 ```
 
 **Exported as** `ZoomInButtonPlugin` and `ZoomOutButtonPlugin`.
+
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.zoomInButtonPlugin`
+- Icon names:
+    * `zoomInIcon`
+
+- Plugin identifier: `es.upv.paella.zoomOutButtonPlugin`
+- Icon names:
+    * `zoomOutIcon`

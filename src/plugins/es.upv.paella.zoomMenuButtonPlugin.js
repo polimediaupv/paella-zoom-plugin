@@ -2,8 +2,8 @@ import { MenuButtonPlugin } from 'paella-core';
 
 import { ZoomCanvas } from './es.upv.paella.zoomPlugin';
 
-import zoomInButton from '../icons/mini-zoom-in.svg';
-import zoomOutButton from '../icons/mini-zoom-out.svg';
+import defaultZoomInButton from '../icons/mini-zoom-in.svg';
+import defaultZoomOutButton from '../icons/mini-zoom-out.svg';
 
 export default class ZoomMenuButtonPlugin extends MenuButtonPlugin {
     getAriaLabel() {
@@ -33,7 +33,7 @@ export default class ZoomMenuButtonPlugin extends MenuButtonPlugin {
     }
 
     async load() {
-        this.icon = zoomInButton;
+        this.icon = this.player.getCustomPluginIcon(this.name,"zoomInIcon") || defaultZoomInButton;
     }
 
     async getMenu() {
@@ -41,12 +41,12 @@ export default class ZoomMenuButtonPlugin extends MenuButtonPlugin {
             {
                 id: "in",
                 title: "Zoom in",
-                icon: zoomInButton
+                icon: this.player.getCustomPluginIcon(this.name,"zoomInIcon") || defaultZoomInButton
             },
             {
                 id: "out",
                 title: "Zoom out",
-                icon: zoomOutButton
+                icon: this.player.getCustomPluginIcon(this.name,"zoomOutIcon") || defaultZoomOutButton
             }
         ]
     }

@@ -2,7 +2,7 @@ import { ButtonPlugin } from 'paella-core';
 
 import { ZoomCanvas } from './es.upv.paella.zoomPlugin';
 
-import zoomInButton from '../icons/mini-zoom-in.svg';
+import defaultZoomInButton from '../icons/mini-zoom-in.svg';
 
 export default class ZoomInButtonPlugin extends ButtonPlugin {
     getAriaLabel() {
@@ -32,7 +32,7 @@ export default class ZoomInButtonPlugin extends ButtonPlugin {
     }
 
     async load() {
-        this.icon = zoomInButton;
+        this.icon = this.player.getCustomPluginIcon(this.name,"zoomInIcon") || defaultZoomInButton;
     }
 
     async action() {
