@@ -2,8 +2,6 @@ import { CanvasPlugin, Canvas, createElementWithHtmlText } from 'paella-core';
 
 import "../styles/zoom.css";
 
-import zoomInIcon from '../icons/mini-zoom-in.svg';
-import zoomOutIcon from '../icons/mini-zoom-out.svg';
 
 function setZoom(container, playerElement, newZoom) {
     const containerSize = {
@@ -141,7 +139,12 @@ export class ZoomCanvas extends Canvas {
                     left: dragPosition.left - evt.clientX, 
                     top: dragPosition.top - evt.clientY
                 };
-                this._playerCenter = movePlayer(this._videoPlayer.element, this._playerCenter, offset);
+                if (this.currentZoom == 1) {
+                    this._playerCenter = { left: 0, top: 0 };
+                }
+                else {
+                    this._playerCenter = movePlayer(this._videoPlayer.element, this._playerCenter, offset);
+                }
                 dragPosition = { left: evt.clientX, top: evt.clientY };
             }
             else {
