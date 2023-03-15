@@ -13,14 +13,6 @@ export default class ZoomInButtonPlugin extends ButtonPlugin {
         return this.getAriaLabel();
     }
 
-	async getDictionaries() {
-		return {
-			es: {
-				"Zoom in": "Ampliar zoom del vídeo"
-			}
-		}
-	}
-
     async isEnabled() {
         if (!(await super.isEnabled())) {
             return false;
