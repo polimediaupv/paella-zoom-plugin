@@ -13,14 +13,6 @@ export default class ZoomOutButtonPlugin extends ButtonPlugin {
         return this.getAriaLabel();
     }
 
-	async getDictionaries() {
-		return {
-			es: {
-				"Zoom out": "Reducir zoom de vídeo"
-			}
-		}
-	}
-
     async isEnabled() {
         if (!(await super.isEnabled())) {
             return false;

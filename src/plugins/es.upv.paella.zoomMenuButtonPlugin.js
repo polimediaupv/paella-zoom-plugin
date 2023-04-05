@@ -14,14 +14,6 @@ export default class ZoomMenuButtonPlugin extends MenuButtonPlugin {
         return this.getAriaLabel();
     }
 
-	async getDictionaries() {
-		return {
-			es: {
-				"Show video zoom options": "Mostrar opciones de zoom de vídeo"
-			}
-		}
-	}
-
     async isEnabled() {
         if (!(await super.isEnabled())) {
             return false;
