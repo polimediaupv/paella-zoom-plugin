@@ -154,7 +154,7 @@ export class ZoomCanvas extends Canvas {
         });
 
         // "press alt" message
-        const message = this.player.translate("Press ALT to zoom");
+        const message = this.player.translate("Use Alt+Scroll to zoom");
         this._zoomMessage = createElementWithHtmlText(`
             <div class="zoom-message">${message}</div>
         `, this.element);
