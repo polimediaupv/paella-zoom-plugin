@@ -121,13 +121,13 @@ These are two button plugins that allow you to zoom in and zoom out the video in
       "es.upv.paella.zoomInButtonPlugin": {
     		"enabled": true,
         "parentContainer": "videoContainer",
-        "side": right,
+        "side": "right",
         "target": "presenter"
       },
 	    "es.upv.paella.zoomOutButtonPlugin": {
     		"enabled": true,
         "parentContainer": "videoContainer",
-        "side": right,
+        "side": "right",
         "target": "presenter"
       }
 	}
@@ -143,5 +143,43 @@ These are two button plugins that allow you to zoom in and zoom out the video in
     * `zoomInIcon`
 
 - Plugin identifier: `es.upv.paella.zoomOutButtonPlugin`
+- Icon names:
+    * `zoomOutIcon`
+
+
+## Zoom in and zoom out canvas buttons
+
+These plugins are equivalent to the two previous plugins (`zoomOutButtonPlugin` and `zoomInButtonPlugin`), but are intended to be included in the video canvas.
+
+**config.json:**
+
+```json
+{
+  "plugins": {
+      "es.upv.paella.canvasZoomInButtonPlugin": {
+    		"enabled": true,
+        "parentContainer": "videoContainer",
+        "side": "right",
+        "content": ["presenter"]
+      },
+	    "es.upv.paella.canvasZoomOutButtonPlugin": {
+    		"enabled": true,
+        "parentContainer": "videoContainer",
+        "side": "right",
+        "content": ["presenter"]
+      }
+	}
+}
+```
+
+**Exported as** `CanvasZoomInButtonPlugin` and `CanvasZoomOutButtonPlugin`.
+
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.canvasZoomInButtonPlugin`
+- Icon names:
+    * `zoomInIcon`
+
+- Plugin identifier: `es.upv.paella.canvasZoomOutButtonPlugin`
 - Icon names:
     * `zoomOutIcon`
