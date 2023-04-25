@@ -102,6 +102,17 @@
             "side": "left",
             "target": "presenter",
             "order": 1
+        },
+
+        "es.upv.paella.canvasZoomInButtonPlugin": {
+            "enabled": true,
+            "content": ["presenter"],
+            "side": "center"
+        },
+        "es.upv.paella.canvasZoomOutButtonPlugin": {
+            "enabled": true,
+            "content": ["presenter"],
+            "side": "center"
         }
     }
 }
