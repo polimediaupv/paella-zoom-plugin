@@ -1,9 +1,19 @@
 import { CanvasButtonPlugin } from "paella-core";
 import { ZoomCanvas } from "./es.upv.paella.zoomPlugin";
 
+import ZoomPluginsModule from "./ZoomPluginsModule";
+
 import defaultZoomOutButton from '../icons/mini-zoom-out.svg';
 
 export default class CanvasZoomOutButtonPlugin extends CanvasButtonPlugin {
+    getPluginModuleInstance() {
+        return ZoomPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.canvasZoomOutButtonPlugin";
+    }
+
     async isEnabled() {
         if (!(await super.isEnabled())) {
             return false;

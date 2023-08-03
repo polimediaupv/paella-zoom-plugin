@@ -1,4 +1,5 @@
 import { CanvasPlugin, Canvas, createElementWithHtmlText } from 'paella-core';
+import ZoomPluginsModule from './ZoomPluginsModule';
 
 import "../styles/zoom.css";
 
@@ -194,6 +195,14 @@ export class ZoomCanvas extends Canvas {
 }
 
 export default class ZoomCanvasPlugin extends CanvasPlugin {
+    getPluginModuleInstance() {
+        return ZoomPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.zoomPlugin";
+    }
+
     get canvasType() { return "video"; }
 
     isCompatible(stream) {

@@ -1,10 +1,19 @@
 import { ButtonPlugin } from 'paella-core';
-
 import { ZoomCanvas } from './es.upv.paella.zoomPlugin';
+
+import ZoomPluginsModule from './ZoomPluginsModule';
 
 import defaultZoomInButton from '../icons/mini-zoom-in.svg';
 
 export default class ZoomInButtonPlugin extends ButtonPlugin {
+    getPluginModuleInstance() {
+        return ZoomPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.zoomInButtonPlugin";
+    }
+
     getAriaLabel() {
         return "Zoom in";
     }

@@ -9,6 +9,45 @@ export default function getZoomPluginContext() {
     return require.context("./plugins", true, /\.js/)
 }
 
+export const zoomPlugins = [
+    {
+        plugin: ZoomCanvas,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: ZoomInButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: ZoomOutButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: ZoomMenuButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: CanvasZoomInButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: CanvasZoomOutButton,
+        config: {
+            enabled: false
+        }
+    }
+];
+
 export const ZoomCanvasPlugin = ZoomCanvas;
 export const ZoomInButtonPlugin = ZoomInButton;
 export const ZoomOutButtonPlugin = ZoomOutButton;

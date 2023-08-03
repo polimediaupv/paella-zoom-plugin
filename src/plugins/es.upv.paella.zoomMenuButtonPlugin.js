@@ -1,11 +1,20 @@
 import { MenuButtonPlugin } from 'paella-core';
-
 import { ZoomCanvas } from './es.upv.paella.zoomPlugin';
+
+import ZoomPluginsModule from './ZoomPluginsModule';
 
 import defaultZoomInButton from '../icons/mini-zoom-in.svg';
 import defaultZoomOutButton from '../icons/mini-zoom-out.svg';
 
 export default class ZoomMenuButtonPlugin extends MenuButtonPlugin {
+    getPluginModuleInstance() {
+        return ZoomPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.zoomMenuButtonPlugin";
+    }
+
     getAriaLabel() {
         return "Show video zoom options";
     }

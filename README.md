@@ -2,6 +2,65 @@
 
 A plugin to zoom videos for Paella Player.
 
+## Usage
+
+**Step 1:** Import the plugin context and add it to the Paella Player initialization parameters:
+
+Usin plugin context API:
+
+```javascript
+...
+import getZoomPluginContext from 'paella-zoom-plugin';
+
+let paella = new Paella('player-container', {
+    customPluginContext: [
+        getZoomPluginContext()
+    ]
+});
+...
+```
+
+Using explicit plugin import API (paella-zoom-plugin >= 1.41):
+
+```javascript
+...
+import {
+    zoomPlugins, // All plugins
+    ZoomCanvasPlugin      // Independent plugin
+} from 'paella-zoom-plugin';
+
+let paella = new Paella('player-container', {
+    plugins: [
+        ...zoomPlugins,    // All plugins
+        { // One plugin
+            plugin: ZoomCanvasPlugin,
+            config: {
+                enabled: true
+            }
+        }
+    ]
+});
+...
+```
+
+**Step 2:** Configure the plugins you want to use in the paella player configuration.
+
+```json
+{
+    "plugins": {
+        ...
+        "es.upv.paella.zoomMenuButtonPlugin": {
+          "enabled": true,
+          ...
+        }
+      }
+        ... other plugin settings
+    }
+}
+```
+
+## Description
+
 This set of plugins consists of four different plugins:
 
 - zoom plugin: is the main plugin, of canvas type, and provides the ability to zoom in and out on video streams. It's mandatory to activate this plugin for the rest of the plugins in this set to work
@@ -30,8 +89,9 @@ Note that, as "video" is the default canvas type, it's not mandatory that the st
 - Zoom out button plugin: adds a button that reduces the video.
 
 
+## Included plugins
 
-## Zoom plugin
+### Zoom plugin
 
 This is a canvas plugin, which will work on videos whose canvas is set to "video" in the video manifest. Note that for the zoom to work, you must disable the default canvas in the configuration file, or set a higher priority:
 
@@ -62,7 +122,7 @@ Zooming works with the mouse scroll wheel by holding down the `alt` key. It is a
 
 **Exported as** `ZoomCanvasPlugin`.
 
-##  Zoom menu plugin
+###  Zoom menu plugin
 
 Displays the options to zoom in or zoom out the video using a drop-down menu. This plugin works on a specific target, which matches the `content` attribute of the video manifest:
 
@@ -109,7 +169,7 @@ Displays the options to zoom in or zoom out the video using a drop-down menu. Th
     * `zoomOutIcon`
 
 
-## Zoom in and zoom out buttons
+### Zoom in and zoom out buttons
 
 These are two button plugins that allow you to zoom in and zoom out the video independently, instead of being grouped in a menu as with the `zoomMenuPlugin` plugin.
 
@@ -147,7 +207,7 @@ These are two button plugins that allow you to zoom in and zoom out the video in
     * `zoomOutIcon`
 
 
-## Zoom in and zoom out canvas buttons
+### Zoom in and zoom out canvas buttons
 
 These plugins are equivalent to the two previous plugins (`zoomOutButtonPlugin` and `zoomInButtonPlugin`), but are intended to be included in the video canvas.
 
