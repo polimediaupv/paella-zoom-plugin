@@ -11,7 +11,7 @@ export default class CanvasZoomInButtonPlugin extends CanvasButtonPlugin {
     }
 
     get name() {
-        return super.name || "es.upv.paella.zoomInButtonPlugin";
+        return super.name || "es.upv.paella.canvasZoomInButtonPlugin";
     }
 
     async isEnabled() {
