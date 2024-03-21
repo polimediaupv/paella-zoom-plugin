@@ -46,7 +46,7 @@ let paella = new Paella('player-container', {
 From version 1.41.3, you can also use the generic plugin array name to import all the plugins:
 
 ```js
-import { allPlugins as webglPlugins } from 'paella-webgl-plugins'
+import { allPlugins as zoomPlugin } from 'paella-zoom-plugin'
 ...
 ```
 
