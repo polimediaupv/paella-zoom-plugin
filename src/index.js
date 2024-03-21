@@ -48,6 +48,8 @@ export const zoomPlugins = [
     }
 ];
 
+export const allPlugins = zoomPlugins;
+
 export const ZoomCanvasPlugin = ZoomCanvas;
 export const ZoomInButtonPlugin = ZoomInButton;
 export const ZoomOutButtonPlugin = ZoomOutButton;
