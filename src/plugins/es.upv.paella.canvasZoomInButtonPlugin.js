@@ -3,7 +3,7 @@ import { ZoomCanvas } from "./es.upv.paella.zoomPlugin";
 
 import ZoomPluginsModule from "./ZoomPluginsModule";
 
-import defaultZoomInButton from '../icons/mini-zoom-in.svg';
+import { ZoomInIcon as defaultZoomInButton } from '../icons/mini-zoom-in.js';
 
 export default class CanvasZoomInButtonPlugin extends CanvasButtonPlugin {
     getPluginModuleInstance() {

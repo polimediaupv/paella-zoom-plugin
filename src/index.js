@@ -5,10 +5,6 @@ import ZoomMenuButton from './plugins/es.upv.paella.zoomMenuButtonPlugin';
 import CanvasZoomInButton from './plugins/es.upv.paella.canvasZoomInButtonPlugin';
 import CanvasZoomOutButton from './plugins/es.upv.paella.canvasZoomOutButtonPlugin';
 
-export default function getZoomPluginContext() {
-    return require.context("./plugins", true, /\.js/)
-}
-
 export const zoomPlugins = [
     {
         plugin: ZoomCanvas,
