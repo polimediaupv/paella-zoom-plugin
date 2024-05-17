@@ -228,12 +228,12 @@ These plugins are equivalent to the two previous plugins (`zoomOutButtonPlugin` 
     "es.upv.paella.canvasZoomInButtonPlugin": {
       "enabled": true,
       "side": "right",
-      "content": ["presenter"]
+      "target": "presenter"
     },
     "es.upv.paella.canvasZoomOutButtonPlugin": {
       "enabled": true,
       "side": "right",
-      "content": ["presenter"]
+      "target": "presenter"
     }
   }
 }

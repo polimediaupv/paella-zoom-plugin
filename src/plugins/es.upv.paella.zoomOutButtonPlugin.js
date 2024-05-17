@@ -2,7 +2,7 @@ import { ButtonPlugin } from 'paella-core';
 import { ZoomCanvas } from './es.upv.paella.zoomPlugin';
 import ZoomPluginsModule from './ZoomPluginsModule';
 
-import defaultZoomOutButton from '../icons/mini-zoom-out.svg';
+import { ZoomOutIcon as defaultZoomOutButton } from '../icons/mini-zoom-out.js';
 
 export default class ZoomOutButtonPlugin extends ButtonPlugin {
     getPluginModuleInstance() {

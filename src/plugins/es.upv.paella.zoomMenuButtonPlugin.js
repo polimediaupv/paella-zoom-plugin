@@ -3,8 +3,8 @@ import { ZoomCanvas } from './es.upv.paella.zoomPlugin';
 
 import ZoomPluginsModule from './ZoomPluginsModule';
 
-import defaultZoomInButton from '../icons/mini-zoom-in.svg';
-import defaultZoomOutButton from '../icons/mini-zoom-out.svg';
+import { ZoomInIcon as defaultZoomInButton } from '../icons/mini-zoom-in.js';
+import { ZoomOutIcon as defaultZoomOutButton } from '../icons/mini-zoom-out.js';
 
 export default class ZoomMenuButtonPlugin extends MenuButtonPlugin {
     getPluginModuleInstance() {
